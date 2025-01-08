@@ -35,7 +35,10 @@
 	text.setAttribute("scale", "1.5 1.5 1.5")
 	text.setAttribute("position", `-1.0 1.0 -0.5`)
 		
-
+        //for MOBILE DEVICE controls
+	let message = "TAP/CLICK"
+	let touchingNow = false
+	//END OF mobile device let statements
 	window.onload = function() {
 
 		walls.push(new Wall(x = -2, z = -1, width = 2, length = 6, "yellow"))
@@ -130,10 +133,6 @@
 		for (let wall of walls) {
 			wall.blocksYou()
 		}
-	//for MOBILE DEVICE controls
-	let message = "TAP/CLICK"
-	let touchingNow = false
-	//END OF mobile device let statements
 		
 		//mobile device: MOVE FORWARD
 		if (touchingNow == true) {
