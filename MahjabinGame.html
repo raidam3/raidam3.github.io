@@ -34,11 +34,14 @@
 	text.setAttribute("color", "#000000") 
 	text.setAttribute("scale", "1.5 1.5 1.5")
 	text.setAttribute("position", `-1.0 1.0 -0.5`)
-		
-        //for MOBILE DEVICE controls
+
+
+	//for MOBILE DEVICE controls
 	let message = "TAP/CLICK"
 	let touchingNow = false
 	//END OF mobile device let statements
+	
+
 	window.onload = function() {
 
 		walls.push(new Wall(x = -2, z = -1, width = 2, length = 6, "yellow"))
@@ -64,15 +67,15 @@
 		walls.push(new Wall(x = -5, z = -15, width = 44, length = 2, "red"))
 		walls.push(new Wall(x = 18, z = -4, width = 2, length = 25, "blue"))
 		
-		enemies.push(new Enemy(x=0, z=-4, v=0.01, direction="x", range=1.5, rotation=0))
+		enemies.push(new Enemy(x=0, z=-4, v=0.02, direction="x", range=1.5, rotation=2))
 		
-		enemies.push(new Enemy(x=-8, z=-5, v=0.01, direction="x", range=3, rotation=0))
+		enemies.push(new Enemy(x=-9, z=-5, v=0.02, direction="x", range=1.5, rotation=0))
 		
-		enemies.push(new Enemy(x=4, z=-4, v=0.01, direction="x", range=2, rotation=0))
+		enemies.push(new Enemy(x=4, z=-4, v=0.02, direction="x", range=2, rotation=0))
 		
-		enemies.push(new Enemy(x=12, z=-5, v=0.01, direction="x", range=2, rotation=0))
+		enemies.push(new Enemy(x=12, z=-5, v=0.02, direction="x", range=2, rotation=0))
 		
-		enemies.push(new Enemy(x=-4, z=2, v=0.01, direction="x", range=2, rotation=0))
+		enemies.push(new Enemy(x=-4, z=2, v=0.02, direction="x", range=2, rotation=0))
 		
 		coins.push(new Coin(x=-5, z=0))
 		
@@ -133,6 +136,7 @@
 		for (let wall of walls) {
 			wall.blocksYou()
 		}
+
 		
 		//mobile device: MOVE FORWARD
 		if (touchingNow == true) {
@@ -179,6 +183,13 @@
 
 	  }
 
+		function game_over() {
+		  cameraPos.x = cameraFinalX
+		  cameraPos.z = cameraFinalZ
+	 	  text.setAttribute("value", "Congrats!")
+  
+		  setTimeout(game_over, 10)
+		}
 
 
 
@@ -404,11 +415,8 @@
 		}, 500);
 	}
 
-
-	
-  </script>
+</script>
   
 </body>
 
 </html>
-
